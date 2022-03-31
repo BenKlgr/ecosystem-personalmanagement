@@ -1,0 +1,18 @@
+{
+  "errormessages": {
+    "tooshort": "Too short",
+    "toolong": "Too long",
+    "required": "Required",
+    "invalidEmail": "Invalid email format",
+    "birthday": "Invalid birthday"
+  },
+  "pages": {
+    "signin": {
+      "infotext": "If you don't have an account, you can register an account",
+      "failedtext": "Your last sign-in attempt failed"
+    },
+    "register": {
+      "infotext": "You got an account? You can sign in "
+    }
+  }
+}

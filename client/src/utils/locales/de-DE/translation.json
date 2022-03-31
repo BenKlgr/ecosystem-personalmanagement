@@ -1,0 +1,7 @@
+{
+  "errormessages": {
+    "tooshort": "Zu kurz",
+    "toolong": "Zu lang",
+    "required": "Notwending"
+  }
+}
