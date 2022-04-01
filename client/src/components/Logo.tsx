@@ -1,4 +1,6 @@
 import { Box, SxProps, Typography } from '@mui/material';
+// @ts-ignore
+import LogoSvg from '../resources/images/Logo.svg?component';
 
 type Props = {
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -7,9 +9,7 @@ type Props = {
 export default function Logo({ size = 'md', sx }: Props) {
   return (
     <Box sx={sx}>
-      <Typography variant={'h3'} letterSpacing={'10px'}>
-        BRAND
-      </Typography>
+      <LogoSvg />
     </Box>
   );
 }

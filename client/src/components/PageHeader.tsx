@@ -6,6 +6,7 @@ import {
   useTheme,
   Stack,
   Avatar,
+  Card,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ExtendedTheme } from '../types/theme';
@@ -36,7 +37,8 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
             '&:hover': {
               textDecoration: 'underline',
             },
-          }}>
+          }}
+          key={r}>
           <Iconify
             icon={route?.icon ?? ''}
             sx={{
@@ -55,7 +57,7 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
   ];
 
   return (
-    <Box sx={{ marginBottom: theme.customSpacing.websiteTop }}>
+    <Box sx={{ marginBottom: theme.customSpacing.innerPadding }}>
       <Stack direction={'row'} sx={{ marginBottom: theme.customSpacing.websiteTop / 2 }}>
         <Typography variant={'h2'} sx={{ flex: 1 }}>
           {title}
@@ -70,17 +72,15 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
           <UserControlPanel />
         </Box>
       </Stack>
-      <Box
+      <Card
         sx={{
           paddingX: theme.customSpacing.md,
           paddingY: theme.customSpacing.md / 2,
-          borderRadius: `${theme.shape.borderRadius}px`,
-          background: theme.palette.background.paper,
         }}>
         <Breadcrumbs separator='›' aria-label='breadcrumb'>
           {breadcrumbs}
         </Breadcrumbs>
-      </Box>
+      </Card>
     </Box>
   );
 }

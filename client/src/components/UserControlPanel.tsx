@@ -1,4 +1,12 @@
-import { Avatar, IconButton, Menu, MenuItem, Stack, useTheme } from '@mui/material';
+import {
+  Avatar,
+  Badge,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  useTheme,
+} from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import useAuth from '../hooks/useAuth';
 import Iconify from './Iconify';
@@ -17,12 +25,16 @@ export default function UserControlPanel() {
   };
 
   return (
-    <Stack spacing={1} direction={'row'}>
-      <Avatar sx={{ bgcolor: theme.palette.primary.main }}>{`${user?.firstname
-        .slice(0, 1)
-        .toUpperCase()}${user?.lastname.slice(0, 1).toUpperCase()}`}</Avatar>
-      <IconButton onClick={handleClick}>
-        <Iconify icon={'ion:ellipsis-vertical'} />
+    <Stack spacing={2} direction={'row'}>
+      <IconButton>
+        <Badge badgeContent={4} color={'primary'}>
+          <Iconify icon={'ion:notifications'} />
+        </Badge>
+      </IconButton>
+      <IconButton onClick={handleClick} sx={{ padding: 0 }}>
+        <Avatar sx={{ bgcolor: theme.palette.primary.main }}>{`${user?.firstname
+          .slice(0, 1)
+          .toUpperCase()}${user?.lastname.slice(0, 1).toUpperCase()}`}</Avatar>
       </IconButton>
       <Menu
         id='basic-menu'

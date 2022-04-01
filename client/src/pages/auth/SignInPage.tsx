@@ -19,11 +19,14 @@ import Iconify from '../../components/Iconify';
 import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux/rootReducer';
 import Logo from '../../components/Logo';
+import { ExtendedTheme } from '../../types/theme';
+import { useTheme } from '@mui/system';
 
 export default function SignInPage() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const theme: ExtendedTheme = useTheme();
 
   const authLoadingState = useAppSelector((state: RootState) => state.auth.loading);
 
@@ -46,7 +49,14 @@ export default function SignInPage() {
     <AuthLayout>
       <Stack spacing={4}>
         <Box sx={{ textAlign: 'center' }}>
-          <Logo />
+          <Logo
+            sx={{
+              fill: theme.palette.primary.main,
+              maxWidth: '70%',
+              display: 'block',
+              margin: '0 auto',
+            }}
+          />
           <Typography variant={'h4'} sx={{ opacity: 0.5 }}>
             Sign in
           </Typography>

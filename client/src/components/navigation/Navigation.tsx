@@ -34,8 +34,13 @@ export default function Navigation() {
         boxShadow: theme.customShadows.z16,
       }}
       spacing={4}>
-      <Box sx={{ textAlign: 'center', paddingY: theme.customSpacing.websiteTop }}>
-        <Logo />
+      <Box
+        sx={{
+          textAlign: 'center',
+          paddingTop: theme.customSpacing.websiteTop,
+          paddingX: theme.customSpacing.innerPadding,
+        }}>
+        <Logo sx={{ fill: theme.palette.primary.main }} />
       </Box>
       <Stack sx={{ flex: 1 }} spacing={4}>
         {navigationRoutes.map((group: NavigationRouteGroup, index) => (
@@ -59,8 +64,7 @@ export default function Navigation() {
       </Stack>
       <Box
         sx={{
-          paddingX: theme.customSpacing.innerPadding,
-          paddingY: theme.customSpacing.websiteTop,
+          padding: theme.customSpacing.innerPadding,
         }}>
         <Stack direction={'row'} spacing={2}>
           <Button

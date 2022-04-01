@@ -27,9 +27,9 @@ export const navigationRoutes: NavigationRouteGroup[] = [
         icon: 'ion:home-outline',
       },
       {
-        label: 'About',
-        route: '/dashboard/about',
-        icon: 'ion:information-circle-outline',
+        label: 'Statistics',
+        route: '/dashboard/statistics',
+        icon: 'ion:stats-chart',
       },
     ],
   },
