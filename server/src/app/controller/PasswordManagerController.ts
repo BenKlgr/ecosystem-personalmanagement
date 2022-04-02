@@ -1,11 +1,10 @@
 import { IMiddlewareFunction } from '../../types/ExpressTypes';
 import DatabaseManager from '../lib/database/DatabaseManager';
-import EndpointManager from '../lib/EndpointManager';
+import { Password } from '../lib/database/models/Password';
 import { Failure, Ok } from '../lib/ResponseFunctions';
 import AuthMiddleware from '../middleware/AuthMiddleware';
 import LoggingMiddleware from '../middleware/LoggingMiddleware';
 import BaseController from './BaseController';
-import { Password } from '../lib/database/models/Models';
 
 export default class PasswordManagerController extends BaseController {
   defaultMiddleware: IMiddlewareFunction[] = [LoggingMiddleware, AuthMiddleware];

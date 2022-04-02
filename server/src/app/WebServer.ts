@@ -1,12 +1,12 @@
-import express, { Express } from 'express';
-import { host, port } from '../config/webserver.config.json';
-import { log } from '../util/Logger';
-import { IExpress } from '../types/ExpressTypes';
-import GeneralController from './controller/GeneralController';
-import DatabaseManager from './lib/database/DatabaseManager';
 import cors from 'cors';
+import express from 'express';
+import { host, port } from '../config/webserver.config.json';
+import { IExpress } from '../types/ExpressTypes';
+import { log } from '../util/Logger';
+import GeneralController from './controller/GeneralController';
 import PasswordManagerController from './controller/PasswordManagerController';
 import ServeClientController from './controller/ServeClientController';
+import DatabaseManager from './lib/database/DatabaseManager';
 
 const WebServerSystem = {
   controllers: [GeneralController, PasswordManagerController, ServeClientController],
