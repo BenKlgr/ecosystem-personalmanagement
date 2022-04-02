@@ -4,6 +4,7 @@ import useAuth from '../hooks/useAuth';
 import RegisterPage from '../pages/auth/RegisterPage';
 import SignInPage from '../pages/auth/SignInPage';
 import DashboardPage from '../pages/dashboard/DashboardPage';
+import PasswordsPage from '../pages/dashboard/passwordmanager/PasswordsPage';
 import StatisticsPage from '../pages/dashboard/StatisticsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import WelcomePage from '../pages/WelcomePage';
@@ -18,8 +19,12 @@ export default function Router() {
 
   const authBasedRoutes = authenticated ? (
     <>
+      {/* General */}
       <Route path={'/dashboard/home'} element={<DashboardPage />} />
       <Route path={'/dashboard/statistics'} element={<StatisticsPage />} />
+
+      {/* Password Manager */}
+      <Route path={'/dashboard/passwordmanager/passwords'} element={<PasswordsPage />} />
 
       <Route path={'*'} element={<Navigate to={'/dashboard/home'} />} />
     </>

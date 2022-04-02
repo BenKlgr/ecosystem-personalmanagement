@@ -26,6 +26,7 @@ export default async function AuthMiddleware<IMiddlewareFunction>(
 
   if (data.status == 'ok') {
     // Authorized
+    res.locals.user = data.payload;
     next();
   } else {
     // Unauthorized

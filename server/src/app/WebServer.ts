@@ -1,22 +1,28 @@
 import express, { Express } from 'express';
-import { host, port, mode } from '../config/webserver.config.json';
+import { host, port } from '../config/webserver.config.json';
 import { log } from '../util/Logger';
 import { IExpress } from '../types/ExpressTypes';
 import GeneralController from './controller/GeneralController';
+import DatabaseManager from './lib/database/DatabaseManager';
+import cors from 'cors';
+import PasswordManagerController from './controller/PasswordManagerController';
 import ServeClientController from './controller/ServeClientController';
-import { join } from 'path';
 
 const WebServerSystem = {
-  controllers: [GeneralController, ServeClientController],
+  controllers: [GeneralController, PasswordManagerController, ServeClientController],
   middlewares: [],
 };
 
 export const Server: IExpress = express();
 
 function WebServer() {
-  if (mode != 'development')
-    Server.use(express.static(join(__dirname, '..', '..', 'Client', 'dist')));
+  DatabaseManager.connectDatabase();
 
+  log('Applying use-functions.');
+  Server.use(express.json());
+  Server.use(cors());
+
+  log('Loading Controllers.');
   WebServerSystem.controllers.forEach((Controller: any) => {
     new Controller(Server).registerRoutes();
   });

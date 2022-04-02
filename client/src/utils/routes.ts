@@ -16,13 +16,8 @@ export const navigationRoutes: NavigationRouteGroup[] = [
         route: '/',
         icon: 'ion:rocket-outline',
       },
-    ],
-  },
-  {
-    label: 'Dashboard',
-    routes: [
       {
-        label: 'Home',
+        label: 'Dashboard',
         route: '/dashboard/home',
         icon: 'ion:home-outline',
       },
@@ -34,22 +29,47 @@ export const navigationRoutes: NavigationRouteGroup[] = [
     ],
   },
   {
-    label: 'User',
+    label: 'Wallet Tracking',
+    routes: [
+      // {
+      //   label: 'Overview',
+      //   route: '/dashboard/wallettracking/overview',
+      //   icon: 'ion:grid',
+      // },
+      {
+        label: 'Finances',
+        route: '/dashboard/wallettracking/finances',
+        icon: 'ion:cash',
+      },
+    ],
+  },
+  {
+    label: 'Todo Master',
     routes: [
       {
-        label: 'Profile',
-        route: '/dashboard/profile',
-        icon: 'ion:person-circle-outline',
+        label: 'List',
+        route: '/dashboard/todomaster/overview',
+        icon: 'ion:list',
       },
       {
-        label: 'Notifications',
-        route: '/dashboard/notifications',
-        icon: 'ion:notifications-outline',
+        label: 'Reportings',
+        route: '/dashboard/todomaster/reportings',
+        icon: 'ion:file-tray-full',
       },
+    ],
+  },
+  {
+    label: 'Password Manager',
+    routes: [
+      // {
+      //   label: 'Overview',
+      //   route: '/dashboard/passwordmanager/overview',
+      //   icon: 'ion:grid',
+      // },
       {
-        label: 'Settings',
-        route: '/dashboard/settings',
-        icon: 'ion:settings-outline',
+        label: 'Passwords',
+        route: '/dashboard/passwordmanager/passwords',
+        icon: 'ion:lock-closed-outline',
       },
     ],
   },

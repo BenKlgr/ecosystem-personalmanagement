@@ -14,7 +14,7 @@ export default function DashboardLayout({ children }: Props) {
       <Box sx={{ width: 'max-content' }}>
         <Navigation />
       </Box>
-      <Box sx={{ flex: 1, paddingY: theme.customSpacing.websiteTop }}>
+      <Box sx={{ flex: 1, paddingY: theme.customSpacing.websiteTop, overflowY: 'auto' }}>
         <Container maxWidth={'xl'}>{children}</Container>
       </Box>
     </Stack>

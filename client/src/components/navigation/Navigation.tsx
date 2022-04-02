@@ -20,8 +20,6 @@ export default function Navigation() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location);
-
   const handleSignOut = () => {
     dispatch(SignOut());
   };
