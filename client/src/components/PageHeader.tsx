@@ -7,11 +7,13 @@ import {
   Stack,
   Avatar,
   Card,
+  TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ExtendedTheme } from '../types/theme';
 import { getRoute } from '../utils/routes';
 import Iconify from './Iconify';
+import PageHeaderSearch from './PageHeaderSearch';
 import UserControlPanel from './UserControlPanel';
 
 type Props = {
@@ -58,29 +60,30 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
 
   return (
     <Box sx={{ marginBottom: theme.customSpacing.innerPadding }}>
-      <Stack direction={'row'} sx={{ marginBottom: theme.customSpacing.websiteTop / 2 }}>
-        <Typography variant={'h2'} sx={{ flex: 1 }}>
-          {title}
-        </Typography>
-        <Box
+      <Stack spacing={2}>
+        <Stack direction={'row'} spacing={4} alignItems={'center'}>
+          <PageHeaderSearch />
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+            }}>
+            <UserControlPanel />
+          </Box>
+        </Stack>
+        <Typography variant={'h3'}>{title}</Typography>
+        <Card
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
+            paddingX: theme.customSpacing.md,
+            paddingY: theme.customSpacing.md / 2,
           }}>
-          <UserControlPanel />
-        </Box>
+          <Breadcrumbs separator='›' aria-label='breadcrumb'>
+            {breadcrumbs}
+          </Breadcrumbs>
+        </Card>
       </Stack>
-      <Card
-        sx={{
-          paddingX: theme.customSpacing.md,
-          paddingY: theme.customSpacing.md / 2,
-        }}>
-        <Breadcrumbs separator='›' aria-label='breadcrumb'>
-          {breadcrumbs}
-        </Breadcrumbs>
-      </Card>
     </Box>
   );
 }
