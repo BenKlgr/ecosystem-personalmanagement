@@ -1,6 +1,5 @@
 import { IRequest, IResponse } from '../../types/ExpressTypes';
-import { identityServerAddress } from '../../config/identity.config.json';
-import axios from 'axios';
+import { getUserByToken } from '../lib/auth/AuthenticationFunctions';
 
 export default async function AuthMiddleware<IMiddlewareFunction>(
   req: IRequest,
@@ -8,28 +7,15 @@ export default async function AuthMiddleware<IMiddlewareFunction>(
   next: Function
 ) {
   const authorizationHeader = req.headers.authorization;
-
   if (!authorizationHeader) return res.status(403).send();
 
   const token = authorizationHeader.split(' ')[1];
-
   if (!token) return res.status(403).send();
 
-  let data;
+  const user = await getUserByToken(token);
 
-  try {
-    const response = await axios.get(`${identityServerAddress}/auth/token/${token}`);
-    data = response.data;
-  } catch (error) {
-    return res.status(503).send();
-  }
+  if (!user) return res.status(403).send();
 
-  if (data.status == 'ok') {
-    // Authorized
-    res.locals.user = data.payload;
-    next();
-  } else {
-    // Unauthorized
-    return res.status(401).send();
-  }
+  res.locals.user = user;
+  next();
 }

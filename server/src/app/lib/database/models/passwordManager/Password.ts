@@ -4,6 +4,7 @@ import {
   CreatedAt,
   DataType,
   DeletedAt,
+  IsUUID,
   Model,
   PrimaryKey,
   Table,
@@ -12,7 +13,7 @@ import {
 
 @Table({ tableName: 'passwordmanager_passwords' })
 export class Password extends Model<Password> {
-  @AutoIncrement
+  @IsUUID(4)
   @PrimaryKey
   @Column(DataType.INTEGER)
   id: number;
@@ -23,8 +24,8 @@ export class Password extends Model<Password> {
   @Column(DataType.STRING)
   password: string;
 
-  @Column(DataType.INTEGER)
-  userId: number;
+  @Column(DataType.STRING)
+  userId: string;
 
   @CreatedAt
   createdAt: Date;

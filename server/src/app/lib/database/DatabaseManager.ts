@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { connectionString } from '../../../config/database.secretconfig.json';
 import { log } from '../../../util/Logger';
-import { Password } from './models/Password';
+import { User } from './models/auth/User';
+import { Password } from './models/passwordManager/Password';
 
 export default class DatabaseManager {
   private static Connection: Sequelize;
@@ -9,7 +10,7 @@ export default class DatabaseManager {
   static async connectDatabase(): Promise<any> {
     this.Connection = new Sequelize(connectionString, {
       logging: false,
-      models: [Password],
+      models: [Password, User],
     });
     try {
       await this.Connection.authenticate();

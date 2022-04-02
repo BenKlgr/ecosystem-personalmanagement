@@ -3,16 +3,11 @@ import express from 'express';
 import { host, port } from '../config/webserver.config.json';
 import { IExpress } from '../types/ExpressTypes';
 import { log } from '../util/Logger';
-import GeneralController from './controller/GeneralController';
-import PasswordManagerController from './controller/PasswordManagerController';
-import ServeClientController from './controller/ServeClientController';
+import { authenticationRouter } from './controllers/Authentication';
+import { passwordManagerRouter } from './controllers/PasswordManager';
+import { serveClientRouter } from './controllers/ServeClient';
 import DatabaseManager from './lib/database/DatabaseManager';
-
-const WebServerSystem = {
-  controllers: [GeneralController, PasswordManagerController, ServeClientController],
-  middlewares: [],
-};
-
+import LoggingMiddleware from './middleware/LoggingMiddleware';
 export const Server: IExpress = express();
 
 function WebServer() {
@@ -21,11 +16,13 @@ function WebServer() {
   log('Applying use-functions.');
   Server.use(express.json());
   Server.use(cors());
+  Server.use(LoggingMiddleware);
 
   log('Loading Controllers.');
-  WebServerSystem.controllers.forEach((Controller: any) => {
-    new Controller(Server).registerRoutes();
-  });
+  Server.use('/api/passwordmanager', passwordManagerRouter);
+  Server.use('/api/auth', authenticationRouter);
+
+  Server.use('', serveClientRouter);
 
   Server.listen(port, host, () => {
     log(`WebServer started on ${host}:${port}`, 'info');

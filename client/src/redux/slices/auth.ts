@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../../types/auth';
 import { DefaultStateType } from '../../types/redux';
-import { Axios, IdentityAxios } from '../../utils/axios';
+import { Axios } from '../../utils/axios';
 import { AppDispatch } from '../store';
 
 export type AuthState = DefaultStateType & {
@@ -53,7 +53,10 @@ export function SignIn(usernameOrEmail: string, password: string) {
   return async (dispatch: AppDispatch) => {
     dispatch(authSlice.actions.startLoading());
 
-    const response = await IdentityAxios.post('auth/', { usernameOrEmail, password });
+    const response = await Axios.post('auth/user/authenticate', {
+      usernameOrEmail,
+      password,
+    });
 
     if (response.status != 200) {
       return dispatch(authSlice.actions.signInFailed());
@@ -75,7 +78,7 @@ export function GetCurrentUser() {
   return async (dispatch: AppDispatch) => {
     dispatch(authSlice.actions.startLoading());
 
-    const response = await IdentityAxios.get('auth/current');
+    const response = await Axios.get('auth/current');
 
     if (response.status != 200) {
       return dispatch(authSlice.actions.getCurrentUserFailed());
