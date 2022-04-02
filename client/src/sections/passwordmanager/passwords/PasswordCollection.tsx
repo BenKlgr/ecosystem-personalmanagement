@@ -22,6 +22,7 @@ import { Box } from '@mui/system';
 import Fuse from 'fuse.js';
 import { useEffect, useMemo, useState } from 'react';
 import Iconify from '../../../components/Iconify';
+import Empty from '../../../components/placeholders/Empty';
 import EnterDecryptionPassword from '../../../modals/passwordmanager/EnterDecryptionPassword';
 import InsertNewPassword from '../../../modals/passwordmanager/InsertNewPassword';
 import { RootState } from '../../../redux/rootReducer';
@@ -144,28 +145,33 @@ export default function PasswordCollection() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {isLoading
-                  ? [...Array(10)].map((_: any, index: number) => (
-                      <TableRow key={index}>
-                        <TableCell>
-                          <Skeleton variant={'text'} />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton variant={'text'} />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton variant={'text'} />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton variant={'text'} />
-                        </TableCell>
-                      </TableRow>
-                    ))
-                  : searchedPasswords.map((password: Password, index: number) => (
-                      <PasswordTableRow password={password} key={index} />
-                    ))}
+                {isLoading ? (
+                  [...Array(10)].map((_: any, index: number) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        <Skeleton variant={'text'} />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton variant={'text'} />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton variant={'text'} />
+                      </TableCell>
+                      <TableCell>
+                        <Skeleton variant={'text'} />
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : searchedPasswords.length == 0 ? (
+                  <></>
+                ) : (
+                  searchedPasswords.map((password: Password, index: number) => (
+                    <PasswordTableRow password={password} key={index} />
+                  ))
+                )}
               </TableBody>
             </Table>
+            {searchedPasswords.length == 0 && <Empty />}
           </TableContainer>
         </CardContent>
       </Card>
