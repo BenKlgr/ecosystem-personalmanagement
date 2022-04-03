@@ -20,6 +20,6 @@ if (mode == 'development') {
   });
 } else {
   serveClientRouter.get('*', async (req, res) => {
-    res.sendFile(join(__dirname, '..', '..', 'Client', 'dist', 'index.html'));
+    res.sendFile(join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
   });
 }
