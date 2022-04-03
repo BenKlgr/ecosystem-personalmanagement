@@ -21,7 +21,7 @@ if (mode == 'development') {
     }
   });
 } else {
-  Server.use(express.static(join(__dirname, '..', '..', 'client', 'dist')));
+  serveClientRouter.use(express.static(join(__dirname, '..', '..', 'client', 'dist')));
 
   serveClientRouter.get('*', async (req, res) => {
     res.sendFile(join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
