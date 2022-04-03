@@ -22,6 +22,7 @@ jobs:
             cd /var/www/personalmanagement/server
             npm install
             npm run build
+            mkdir dist/logs
             cd /var/www/personalmanagement/client
             npm install
             npm run build
