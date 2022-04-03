@@ -4,7 +4,9 @@ import { IRequest, IResponse } from '../../types/ExpressTypes';
 import { log } from '../../util/Logger';
 import { Failure } from '../lib/ResponseFunctions';
 import { mode } from '../../config/webserver.config.json';
+import { Server } from '../WebServer';
 const httpProxy = require('http-proxy');
+import express from 'express';
 
 export const serveClientRouter = Router();
 
@@ -19,6 +21,8 @@ if (mode == 'development') {
     }
   });
 } else {
+  Server.use(express.static(join(__dirname, '..', '..', 'client', 'dist')));
+
   serveClientRouter.get('*', async (req, res) => {
     res.sendFile(join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
   });
