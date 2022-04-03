@@ -15,5 +15,11 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
-            ls -al
+            cd /var/www/personalmanagement
+            git pull
+            cd /var/www/personalmanagement/server
+            npm install
+            npm run build
+            cd /var/www/personalmanagement/client
+            npm install
+            npm run build
