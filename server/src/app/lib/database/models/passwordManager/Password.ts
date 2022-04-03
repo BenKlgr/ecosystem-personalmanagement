@@ -3,6 +3,7 @@ import {
   Column,
   CreatedAt,
   DataType,
+  Default,
   DeletedAt,
   IsUUID,
   Model,
@@ -15,7 +16,8 @@ import {
 export class Password extends Model<Password> {
   @IsUUID(4)
   @PrimaryKey
-  @Column(DataType.INTEGER)
+  @Default(DataType.UUIDV4)
+  @Column(DataType.STRING)
   id: number;
 
   @Column(DataType.STRING)
