@@ -19,17 +19,9 @@ passwordManagerRouter.delete('/passwords/:id', async (req, res) => {
   const user = res.locals.user as User;
   const { id } = req.params;
 
-  let passwordId;
-
-  try {
-    passwordId = parseInt(id);
-  } catch (error) {
-    return res.json(Failure('invalid_params'));
-  }
-
   const passwordToDelete = await Password.findOne({
     where: {
-      id: passwordId,
+      id,
       userId: user.id,
     },
   });
@@ -76,17 +68,9 @@ passwordManagerRouter.post('/passwords/:id/service', async (req, res) => {
   )
     return res.json(Failure('invalid_body'));
 
-  let passwordId;
-
-  try {
-    passwordId = parseInt(id);
-  } catch (error) {
-    return res.json(Failure('invalid_params'));
-  }
-
   const passwordToUpdate = await Password.findOne({
     where: {
-      id: passwordId,
+      id,
       userId: user.id,
     },
   });
