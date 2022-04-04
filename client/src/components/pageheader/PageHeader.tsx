@@ -10,11 +10,11 @@ import {
   TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { ExtendedTheme } from '../types/theme';
-import { getRoute } from '../utils/routes';
-import Iconify from './Iconify';
+import { ExtendedTheme } from '../../types/theme';
+import { getRoute } from '../../utils/routes';
+import Iconify from '../Iconify';
 import PageHeaderSearch from './PageHeaderSearch';
-import UserControlPanel from './UserControlPanel';
+import UserControlPanel from '../UserControlPanel';
 
 type Props = {
   title: string;
