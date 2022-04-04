@@ -1,7 +1,7 @@
 import { DatabaseEntry } from './general';
 
 export type Password = {
-  id: number;
+  id: string;
   service: string;
   password: string;
 } & DatabaseEntry;

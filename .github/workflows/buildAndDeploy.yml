@@ -26,3 +26,11 @@ jobs:
             cd /var/www/personalmanagement/client
             npm install
             npm run build
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          WITH_V: true

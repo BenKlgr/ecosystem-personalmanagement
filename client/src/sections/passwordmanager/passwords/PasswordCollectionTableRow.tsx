@@ -93,7 +93,11 @@ export default function PasswordTableRow({ password, key }: PasswordTableRowProp
         handleClose={handleChangePasswordServiceClose}
       />
       <TableRow key={key}>
-        <TableCell>{password.id}</TableCell>
+        <TableCell>
+          <Tooltip title={password.id}>
+            <Typography>{password.id.slice(0, 6)}...</Typography>
+          </Tooltip>
+        </TableCell>
         <TableCell>{password.service}</TableCell>
         <TableCell>{showingPassword ? decryptedPassword : '*********'}</TableCell>
         <TableCell sx={{ textAlign: 'right' }}>

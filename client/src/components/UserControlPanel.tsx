@@ -2,6 +2,8 @@ import {
   Avatar,
   Badge,
   IconButton,
+  ListItemIcon,
+  ListItemText,
   Menu,
   MenuItem,
   Stack,
@@ -52,9 +54,24 @@ export default function UserControlPanel() {
           vertical: 'top',
           horizontal: 'right',
         }}>
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Settings</MenuItem>
-        <MenuItem onClick={handleClose}>Sign Out</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon sx={{ marginRight: 0 }}>
+            <Iconify icon={'ion:person'} />
+          </ListItemIcon>
+          <ListItemText>Profile</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon sx={{ marginRight: 0 }}>
+            <Iconify icon={'ion:cog-outline'} />
+          </ListItemIcon>
+          <ListItemText>Settings</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon sx={{ marginRight: 0 }}>
+            <Iconify icon={'ion:log-out-outline'} />
+          </ListItemIcon>
+          <ListItemText>Sign out</ListItemText>
+        </MenuItem>
       </Menu>
     </Stack>
   );

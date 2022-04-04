@@ -62,7 +62,7 @@ export function GetPasswords() {
   };
 }
 
-export function DeletePassword(passwordId: number) {
+export function DeletePassword(passwordId: string) {
   return async (dispatch: AppDispatch) => {
     dispatch(passwordsSlice.actions.startLoading());
 
@@ -82,7 +82,7 @@ export function CreatePassword(service: string, password: string) {
   };
 }
 
-export function UpdatePasswordService(passwordId: number, newService: string) {
+export function UpdatePasswordService(passwordId: string, newService: string) {
   return async (dispatch: AppDispatch) => {
     dispatch(passwordsSlice.actions.startLoading());
 
