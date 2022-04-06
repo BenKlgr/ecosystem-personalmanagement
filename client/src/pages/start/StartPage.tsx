@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 
-export default function WelcomePage() {
+export default function StartPage() {
   return (
     <>
       <Container>
