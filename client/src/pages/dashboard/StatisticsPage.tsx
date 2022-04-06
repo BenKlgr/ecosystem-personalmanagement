@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, Grid, Typography } from '@mui/material';
-import PageHeader from '../../components/PageHeader';
+import PageHeader from '../../components/pageheader/PageHeader';
 import useAuth from '../../hooks/useAuth';
 import DashboardLayout from '../../layouts/DashboardLayout';
 

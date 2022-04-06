@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import PageHeader from '../../components/PageHeader';
+import PageHeader from '../../components/pageheader/PageHeader';
 import useAuth from '../../hooks/useAuth';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import LoadingOverlay from '../../sections/LoadingOverlay';

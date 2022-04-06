@@ -22,9 +22,8 @@ import { decryptPassword } from '../../../utils/encryption';
 
 type PasswordTableRowProps = {
   password: Password;
-  key: number;
 };
-export default function PasswordTableRow({ password, key }: PasswordTableRowProps) {
+export default function PasswordTableRow({ password }: PasswordTableRowProps) {
   const theme: ExtendedTheme = useTheme();
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(menuAnchor);
@@ -92,7 +91,7 @@ export default function PasswordTableRow({ password, key }: PasswordTableRowProp
         open={changePasswordServiceOpen}
         handleClose={handleChangePasswordServiceClose}
       />
-      <TableRow key={key}>
+      <TableRow>
         <TableCell>
           <Tooltip title={password.id}>
             <Typography>{password.id.slice(0, 6)}...</Typography>
