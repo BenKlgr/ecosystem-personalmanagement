@@ -12,13 +12,15 @@ export function getTokenFromRequest(request: IRequest): string | null {
   if (!authorizationHeader) return null;
 
   const token = authorizationHeader.split(' ')[1];
-  if (!token) return null;
+  if (!token || token.length <= 0) return null;
 
   return token;
 }
 
 export async function getUserByToken(token: string): Promise<User | null> {
   const tokenPayload = getTokenPayload(token);
+
+  if (!tokenPayload) return null;
 
   const { userId, email } = tokenPayload;
 
