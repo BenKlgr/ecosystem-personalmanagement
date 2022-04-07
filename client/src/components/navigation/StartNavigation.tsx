@@ -2,6 +2,7 @@ import { Box, Button, Stack, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { ExtendedTheme } from '../../types/theme';
+import Iconify from '../Iconify';
 import Logo from '../Logo';
 import ThemeModeSwitch from '../theme/ThemeModeSwitch';
 
@@ -20,14 +21,16 @@ export default function StartNavigation() {
             <>
               <Button
                 variant={'text'}
-                color={'inherit'}
-                onClick={() => navigate('/dashboard')}>
+                color={'secondary'}
+                onClick={() => navigate('/dashboard')}
+                startIcon={<Iconify icon={'ion:home-outline'} />}>
                 Dashboard
               </Button>
               <Button
                 variant={'outlined'}
-                color={'inherit'}
-                onClick={() => signOutFunction()}>
+                color={'primary'}
+                onClick={() => signOutFunction()}
+                startIcon={<Iconify icon={'ion:log-out-outline'} />}>
                 Sign Out
               </Button>
             </>
@@ -36,13 +39,15 @@ export default function StartNavigation() {
               <Button
                 variant={'text'}
                 color={'secondary'}
-                onClick={() => navigate('/signin')}>
+                onClick={() => navigate('/signin')}
+                startIcon={<Iconify icon={'ion:log-in-outline'} />}>
                 Sign in
               </Button>
               <Button
                 variant={'text'}
                 color={'primary'}
-                onClick={() => navigate('/register')}>
+                onClick={() => navigate('/register')}
+                startIcon={<Iconify icon={'ion:create-outline'} />}>
                 Register
               </Button>
             </>
