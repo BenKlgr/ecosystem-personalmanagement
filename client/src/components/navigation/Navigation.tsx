@@ -50,7 +50,8 @@ export default function Navigation() {
           <Stack spacing={1} key={index}>
             <Typography
               variant={'overline'}
-              sx={{ paddingX: theme.customSpacing.innerPadding }}>
+              sx={{ paddingX: theme.customSpacing.innerPadding }}
+              color={'secondary'}>
               {group.label}
             </Typography>
             <Stack spacing={0.5}>
