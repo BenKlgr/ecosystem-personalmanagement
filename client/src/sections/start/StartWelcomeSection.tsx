@@ -53,7 +53,7 @@ export default function StartWelcomeSection() {
               <Typography variant={'h5'} color={'primary'} sx={{ display: 'inline' }}>
                 Personal Management Tool
               </Typography>{' '}
-              and start to manage your <i>financial behauvior</i>, your <i>tasks</i> and{' '}
+              and start to manage your <i>financial behavior</i>, your <i>tasks</i> and{' '}
               <i>secret data</i> like a Pro.
             </Typography>
             <Stack direction={'row'} spacing={4}>
