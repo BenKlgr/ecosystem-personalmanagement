@@ -1,29 +1,8 @@
-import { alpha } from '@mui/material/styles';
+import { alpha, Palette } from '@mui/material/styles';
 
 function createGradient(color1: string, color2: string) {
   return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
-
-const GREY = {
-  0: '#FFFFFF',
-  100: '#F9FAFB',
-  200: '#F4F6F8',
-  300: '#DFE3E8',
-  400: '#C4CDD5',
-  500: '#919EAB',
-  600: '#637381',
-  700: '#454F5B',
-  800: '#212B36',
-  900: '#161C24',
-  500_8: alpha('#919EAB', 0.08),
-  500_12: alpha('#919EAB', 0.12),
-  500_16: alpha('#919EAB', 0.16),
-  500_24: alpha('#919EAB', 0.24),
-  500_32: alpha('#919EAB', 0.32),
-  500_48: alpha('#919EAB', 0.48),
-  500_56: alpha('#919EAB', 0.56),
-  500_80: alpha('#919EAB', 0.8),
-};
 
 const PRIMARY = {
   lighter: '#85D4FF',
@@ -49,22 +28,6 @@ const INFO = {
   darker: '#04297A',
   contrastText: '#fff',
 };
-const SUCCESS = {
-  lighter: '#E9FCD4',
-  light: '#AAF27F',
-  main: '#54D62C',
-  dark: '#229A16',
-  darker: '#08660D',
-  contrastText: GREY[800],
-};
-const WARNING = {
-  lighter: '#FFF7CD',
-  light: '#FFE16A',
-  main: '#FFC107',
-  dark: '#B78103',
-  darker: '#7A4F01',
-  contrastText: GREY[800],
-};
 const ERROR = {
   lighter: '#FFE7D9',
   light: '#FFA48D',
@@ -72,14 +35,6 @@ const ERROR = {
   dark: '#B72136',
   darker: '#7A0C2E',
   contrastText: '#fff',
-};
-
-const GRADIENTS = {
-  primary: createGradient(PRIMARY.light, PRIMARY.main),
-  info: createGradient(INFO.light, INFO.main),
-  success: createGradient(SUCCESS.light, SUCCESS.main),
-  warning: createGradient(WARNING.light, WARNING.main),
-  error: createGradient(ERROR.light, ERROR.main),
 };
 
 const CHART_COLORS = {
@@ -90,30 +45,109 @@ const CHART_COLORS = {
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
 
-const palette = {
-  common: { black: '#000', white: '#fff' },
-  primary: { ...PRIMARY },
-  secondary: { ...SECONDARY },
-  info: { ...INFO },
-  success: { ...SUCCESS },
-  warning: { ...WARNING },
-  error: { ...ERROR },
-  grey: GREY,
-  gradients: GRADIENTS,
-  chart: CHART_COLORS,
-  divider: GREY[500_24],
-  text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[400] },
-  background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
-  action: {
-    active: GREY[600],
-    hover: GREY[500_8],
-    selected: GREY[500_16],
-    disabled: GREY[500_80],
-    disabledBackground: GREY[500_24],
-    focus: GREY[500_24],
-    hoverOpacity: 0.08,
-    disabledOpacity: 0.48,
-  },
+const palette = (mode: string) => {
+  const isLight = mode == 'light';
+
+  const GREY = isLight
+    ? {
+        0: '#FFFFFF',
+        100: '#F9FAFB',
+        200: '#F4F6F8',
+        300: '#DFE3E8',
+        400: '#C4CDD5',
+        500: '#919EAB',
+        600: '#637381',
+        700: '#454F5B',
+        800: '#212B36',
+        900: '#161C24',
+        500_8: alpha('#919EAB', 0.08),
+        500_12: alpha('#919EAB', 0.12),
+        500_16: alpha('#919EAB', 0.16),
+        500_24: alpha('#919EAB', 0.24),
+        500_32: alpha('#919EAB', 0.32),
+        500_48: alpha('#919EAB', 0.48),
+        500_56: alpha('#919EAB', 0.56),
+        500_80: alpha('#919EAB', 0.8),
+      }
+    : {
+        0: '#FFFFFF',
+        100: '#F9FAFB',
+        200: '#F4F6F8',
+        300: '#DFE3E8',
+        400: '#C4CDD5',
+        500: '#919EAB',
+        600: '#637381',
+        700: '#485b66',
+        800: '#1e2224',
+        900: '#17181a',
+        500_8: alpha('#919EAB', 0.08),
+        500_12: alpha('#919EAB', 0.12),
+        500_16: alpha('#919EAB', 0.16),
+        500_24: alpha('#919EAB', 0.24),
+        500_32: alpha('#919EAB', 0.32),
+        500_48: alpha('#919EAB', 0.48),
+        500_56: alpha('#919EAB', 0.56),
+        500_80: alpha('#919EAB', 0.8),
+      };
+  const SUCCESS = {
+    lighter: '#E9FCD4',
+    light: '#AAF27F',
+    main: '#54D62C',
+    dark: '#229A16',
+    darker: '#08660D',
+    contrastText: GREY[800],
+  };
+  const WARNING = {
+    lighter: '#FFF7CD',
+    light: '#FFE16A',
+    main: '#FFC107',
+    dark: '#B78103',
+    darker: '#7A4F01',
+    contrastText: GREY[800],
+  };
+
+  const GRADIENTS = {
+    primary: createGradient(PRIMARY.light, PRIMARY.main),
+    info: createGradient(INFO.light, INFO.main),
+    success: createGradient(SUCCESS.light, SUCCESS.main),
+    warning: createGradient(WARNING.light, WARNING.main),
+    error: createGradient(ERROR.light, ERROR.main),
+  };
+
+  return {
+    mode,
+    common: { black: '#000', white: '#fff' },
+    primary: { ...PRIMARY },
+    secondary: { ...SECONDARY },
+    info: { ...INFO },
+    success: { ...SUCCESS },
+    warning: { ...WARNING },
+    error: { ...ERROR },
+    grey: GREY,
+    gradients: GRADIENTS,
+    chart: CHART_COLORS,
+    divider: GREY[50024],
+    text: {
+      primary: isLight ? GREY[800] : GREY[400],
+      secondary: isLight ? GREY[600] : GREY[500],
+      disabled: isLight ? GREY[400] : GREY[800],
+    },
+    background: {
+      paper: isLight ? '#fff' : GREY[800],
+      default: isLight ? GREY[100] : GREY[900],
+      neutral: isLight ? GREY[200] : GREY[800],
+    },
+    action: {
+      active: GREY[600],
+      hover: GREY[5008],
+      selected: GREY[50016],
+      disabled: GREY[50080],
+      disabledBackground: GREY[50024],
+      focus: GREY[50024],
+      hoverOpacity: 0.08,
+      disabledOpacity: 0.48,
+    },
+  };
 };
 
 export default palette;

@@ -15,6 +15,7 @@ import {
 
 export default function Navigation() {
   const theme: ExtendedTheme = useTheme();
+  const isLight = theme.palette.mode == 'light';
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -30,6 +31,10 @@ export default function Navigation() {
         width: '17.5rem',
         height: '100%',
         boxShadow: theme.customShadows.z16,
+        borderRight: '2px solid transparent',
+        borderRightColor: !isLight
+          ? theme.palette.background.paper
+          : theme.palette.background.default,
       }}
       spacing={4}>
       <Box
@@ -108,7 +113,7 @@ function NavigationRoute({ route, activeRoute }: NavigationRouteProps) {
           '&:hover': activeRoute
             ? {}
             : {
-                background: theme.palette.grey.A200,
+                background: theme.palette.action.hover,
               },
         }}
         onClick={handleClick}>
