@@ -4,28 +4,32 @@ import { ExtendedTheme } from '../../types/theme';
 import breakpoints from './breakpoints';
 import getOverrides from './overrides';
 import palette from './palette';
-import shadows, { customShadows } from './shadows';
+import { GetShadows } from './shadows';
 import typography from './typography';
 
-const themeOptions: ThemeOptions & any = {
-  palette,
-  shape: { borderRadius: 8 },
-  typography,
-  shadows,
-  customShadows,
-  breakpoints,
-  customSpacing: {
-    websiteTop: 8,
-    innerPadding: 4,
-    xs: 1,
-    sm: 2,
-    md: 3,
-    lg: 4,
-    xl: 8,
-  },
-};
+export function GetTheme(mode: string) {
+  const p = palette(mode);
 
-const theme = createTheme(themeOptions);
-theme.components = getOverrides(theme as ExtendedTheme) as any;
+  const themeOptions: ThemeOptions & any = {
+    palette: palette(mode),
+    shape: { borderRadius: 8 },
+    typography,
+    shadows: GetShadows(p as any)[0],
+    customShadows: GetShadows(p as any)[1],
+    breakpoints,
+    customSpacing: {
+      websiteTop: 8,
+      innerPadding: 4,
+      xs: 1,
+      sm: 2,
+      md: 3,
+      lg: 4,
+      xl: 8,
+    },
+  };
 
-export default theme;
+  const theme = createTheme(themeOptions);
+  theme.components = getOverrides(theme as ExtendedTheme) as any;
+
+  return theme;
+}
