@@ -8,7 +8,7 @@ type Props = {
 };
 export default function Logo({ size = 'md', sx }: Props) {
   return (
-    <Box sx={{ padding: '16.5px 0px', ...sx }}>
+    <Box sx={{ padding: '0px 0px', ...sx }}>
       <LogoSvg />
     </Box>
   );

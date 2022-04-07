@@ -15,6 +15,7 @@ import { getRoute } from '../../utils/routes';
 import Iconify from '../Iconify';
 import PageHeaderSearch from './PageHeaderSearch';
 import UserControlPanel from '../UserControlPanel';
+import ThemeModeSwitch from '../theme/ThemeModeSwitch';
 
 type Props = {
   title: string;
@@ -70,6 +71,7 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
               justifyContent: 'center',
               height: '100%',
             }}>
+            <ThemeModeSwitch />
             <UserControlPanel />
           </Box>
         </Stack>
