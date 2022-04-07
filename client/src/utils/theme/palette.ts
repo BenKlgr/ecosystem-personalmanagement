@@ -78,8 +78,8 @@ const palette = (mode: string) => {
         500: '#919EAB',
         600: '#637381',
         700: '#485b66',
-        800: '#1e2224',
-        900: '#17181a',
+        800: '#212b36',
+        900: '#161c24',
         500_8: alpha('#919EAB', 0.08),
         500_12: alpha('#919EAB', 0.12),
         500_16: alpha('#919EAB', 0.16),
@@ -128,9 +128,9 @@ const palette = (mode: string) => {
     chart: CHART_COLORS,
     divider: GREY[50024],
     text: {
-      primary: isLight ? GREY[800] : GREY[400],
-      secondary: isLight ? GREY[600] : GREY[500],
-      disabled: isLight ? GREY[400] : GREY[800],
+      primary: isLight ? GREY[800] : GREY[200],
+      secondary: isLight ? GREY[600] : GREY[300],
+      disabled: isLight ? GREY[400] : GREY[700],
     },
     background: {
       paper: isLight ? '#fff' : GREY[800],

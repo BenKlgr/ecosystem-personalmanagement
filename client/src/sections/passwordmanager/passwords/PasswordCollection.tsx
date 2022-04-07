@@ -92,12 +92,13 @@ export default function PasswordCollection() {
         <CardHeader
           title={
             <Stack direction={'row'} alignItems={'center'} spacing={4}>
-              <Typography variant={'h4'}>Your Passwords</Typography>
+              <>Your Passwords</>
               <TextField
                 placeholder={'Search...'}
                 value={search}
                 onChange={(event) => setSearch(event.currentTarget.value)}
                 variant={'standard'}
+                sx={{ marginLeft: 2 }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
