@@ -7,7 +7,7 @@ import DashboardPage from '../pages/dashboard/DashboardPage';
 import PasswordsPage from '../pages/dashboard/passwordmanager/PasswordsPage';
 import StatisticsPage from '../pages/dashboard/StatisticsPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import WelcomePage from '../pages/WelcomePage';
+import StartPage from '../pages/start/StartPage';
 import LoadingOverlay from '../sections/LoadingOverlay';
 
 export default function Router() {
@@ -40,7 +40,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={'/'} element={<WelcomePage />} />
+        <Route path={'/'} element={<StartPage />} />
 
         {authBasedRoutes}
       </Routes>
