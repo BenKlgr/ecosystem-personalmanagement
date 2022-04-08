@@ -105,6 +105,14 @@ const palette = (mode: string) => {
     darker: '#7A4F01',
     contrastText: GREY[800],
   };
+  const SECONDARY = {
+    lighter: GREY[400],
+    light: GREY[500],
+    main: GREY[600],
+    dark: GREY[700],
+    darker: GREY[800],
+    contrastText: '#fff',
+  };
 
   const GRADIENTS = {
     primary: createGradient(PRIMARY.light, PRIMARY.main),
@@ -128,7 +136,7 @@ const palette = (mode: string) => {
     chart: CHART_COLORS,
     divider: GREY[50024],
     text: {
-      primary: isLight ? GREY[800] : GREY[200],
+      primary: isLight ? GREY[800] : GREY[300],
       secondary: isLight ? GREY[600] : GREY[300],
       disabled: isLight ? GREY[400] : GREY[700],
     },
