@@ -1,4 +1,9 @@
 {
+  "globals": {
+    "apptitle": "Personal Management Tool",
+    "getstarted": "Get Started",
+    "documentation": "Documentation"
+  },
   "errormessages": {
     "tooshort": "Too short",
     "toolong": "Too long",
@@ -13,6 +18,20 @@
     },
     "register": {
       "infotext": "You got an account? You can sign in "
+    },
+    "start": {
+      "sections": {
+        "welcome": {
+          "title": "Start to get more efficient and organized",
+          "subtitle": "Take the control over with the Personal Management Tool and start to manage your financial behavior, your tasks and secret data like a Pro.",
+          "techstack": "Techstack",
+
+          "video": {
+            "title": "Demonstration Video",
+            "disclaimer": "EVERY EXPERIENCE CAN BE DIFFERENT, BECAUSE THIS TOOL IS VERY CUSTOMIZABLE. PLEASE BE AWARE"
+          }
+        }
+      }
     }
   }
 }

@@ -16,11 +16,14 @@ import previewImage from '../../resources/images/start/screenshot_preview.png';
 // @ts-ignore
 import BackgroundVector from '../../resources/images/start/background/world.svg?component';
 import Iconify from '../../components/Iconify';
+import { useTranslation } from 'react-i18next';
 
 export default function StartWelcomeSection() {
   const [user, authenticated] = useAuth();
   const theme: ExtendedTheme = useTheme();
   const isLight = theme.palette.mode == 'light';
+
+  const { t } = useTranslation();
 
   return (
     <Box>
@@ -56,7 +59,7 @@ export default function StartWelcomeSection() {
             <Stack spacing={4}>
               <Typography variant={'h1'}>
                 {/* {authenticated ? `Welcome ${user?.firstname}!` : 'Welcome!'} */}
-                Start to get more efficient and organized
+                { t('pages.start.sections.welcome.title') }
               </Typography>
               <Typography variant={'h5'} color={'secondary'}>
                 Take the control over with the{' '}
