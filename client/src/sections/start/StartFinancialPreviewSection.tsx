@@ -28,7 +28,7 @@ export default function StartFinancialPreviewSection() {
           borderRadius: `${theme.shape.borderRadius}px`,
         }}>
         <Grid container spacing={4}>
-          <Grid item sm={6}>
+          <Grid item sm={12} md={6}>
             <Stack spacing={4}>
               <Stack spacing={1}>
                 <Typography variant={'h3'}>Wallet Tracking</Typography>
@@ -60,9 +60,16 @@ export default function StartFinancialPreviewSection() {
           </Grid>
           <Grid
             item
-            sm={6}
+            sm={12}
+            md={6}
             sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Box sx={{ height: '25rem' }}>
+            <Box
+              sx={{
+                height: '25rem',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}>
               <FinancialDataSVG />
             </Box>
           </Grid>

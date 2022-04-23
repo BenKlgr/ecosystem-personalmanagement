@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Iconify from '../../../components/Iconify';
 import ChangePasswordService from '../../../modals/passwordmanager/ChangePasswordService';
 import { RootState } from '../../../redux/rootReducer';
@@ -27,6 +28,8 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
   const theme: ExtendedTheme = useTheme();
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(menuAnchor);
+
+  const { t } = useTranslation();
 
   const [changePasswordServiceOpen, setChangePasswordServiceOpen] = useState(false);
 
@@ -58,7 +61,9 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
       setDecryptedPassword(decryptPassword(password.password, decryptionPassword));
       setShowingPassword(true);
     } else {
-      enqueueSnackbar('You must unlock the passwords first', { variant: 'error' });
+      enqueueSnackbar(t('pages.passwordmanager.passwords.snackbar.unlockerror'), {
+        variant: 'error',
+      });
     }
   };
   const handleHidePassword = () => {
@@ -69,9 +74,13 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
       await navigator.clipboard.writeText(
         decryptPassword(password.password, decryptionPassword)
       );
-      enqueueSnackbar('Copied to clipboard', { variant: 'success' });
+      enqueueSnackbar(t('pages.passwordmanager.passwords.snackbar.copy'), {
+        variant: 'success',
+      });
     } else {
-      enqueueSnackbar('You must unlock the passwords first', { variant: 'error' });
+      enqueueSnackbar(t('pages.passwordmanager.passwords.snackbar.unlockerror'), {
+        variant: 'error',
+      });
     }
   };
 
@@ -100,7 +109,7 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
         <TableCell>{password.service}</TableCell>
         <TableCell>{showingPassword ? decryptedPassword : '*********'}</TableCell>
         <TableCell sx={{ textAlign: 'right' }}>
-          <Tooltip title={'Hold to show password'}>
+          <Tooltip title={t('pages.passwordmanager.passwords.tooltips.togglehide') + ''}>
             <IconButton
               onMouseDown={handleShowPassword}
               onMouseUp={handleHidePassword}
@@ -110,7 +119,7 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
               />
             </IconButton>
           </Tooltip>
-          <Tooltip title={'Copy password to clipboard'}>
+          <Tooltip title={t('pages.passwordmanager.passwords.tooltips.copy') + ''}>
             <IconButton onClick={handleCopyPassword}>
               <Iconify icon={'ion:clipboard-outline'} />
             </IconButton>
@@ -133,7 +142,9 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
             <MenuItem onClick={handleChangeServiceName}>
               <Stack direction={'row'} spacing={2} alignItems={'center'}>
                 <Iconify icon={'ion:backspace-outline'} />
-                <Typography>Change Service-Name</Typography>
+                <Typography>
+                  {t('pages.passwordmanager.passwords.actions.changeservicename')}
+                </Typography>
               </Stack>
             </MenuItem>
             <MenuItem onClick={handleDeletePassword}>
@@ -143,7 +154,7 @@ export default function PasswordTableRow({ password }: PasswordTableRowProps) {
                   sx={{ color: theme.palette.error.main }}
                 />
                 <Typography sx={{ color: theme.palette.error.main }}>
-                  Delete Password
+                  {t('pages.passwordmanager.passwords.actions.delete')}
                 </Typography>
               </Stack>
             </MenuItem>

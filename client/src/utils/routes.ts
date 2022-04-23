@@ -10,23 +10,23 @@ export type NavigationRoute = {
 };
 export const navigationRoutes: NavigationRouteGroup[] = [
   {
-    label: 'General',
+    label: 'general',
     routes: [
       {
-        label: 'Startpage',
+        label: 'startpage',
         route: '/',
         icon: 'ion:rocket-outline',
         description: 'Enough seen? Get back to the start page.',
       },
       {
-        label: 'Dashboard',
+        label: 'dashboard',
         route: '/dashboard/home',
         icon: 'ion:home-outline',
         description:
           'Everything in one place. See a total overview about all your current nessesary information.',
       },
       {
-        label: 'Statistics',
+        label: 'statistics',
         route: '/dashboard/statistics',
         icon: 'ion:stats-chart',
         description:
@@ -35,7 +35,7 @@ export const navigationRoutes: NavigationRouteGroup[] = [
     ],
   },
   {
-    label: 'Wallet Tracking',
+    label: 'wallettracking',
     routes: [
       // {
       //   label: 'Overview',
@@ -44,7 +44,7 @@ export const navigationRoutes: NavigationRouteGroup[] = [
       // description: '',
       // },
       {
-        label: 'Finances',
+        label: 'finances',
         route: '/dashboard/wallettracking/finances',
         icon: 'ion:cash',
         description:
@@ -53,17 +53,17 @@ export const navigationRoutes: NavigationRouteGroup[] = [
     ],
   },
   {
-    label: 'Todo Master',
+    label: 'todomaster',
     routes: [
       {
-        label: 'List',
+        label: 'list',
         route: '/dashboard/todomaster/overview',
         icon: 'ion:list',
         description:
           'What is up for today? Find it out by taking a look into your todo list and managing it by deleting, adding and editing your tasks.',
       },
       {
-        label: 'Reportings',
+        label: 'reportings',
         route: '/dashboard/todomaster/reportings',
         icon: 'ion:file-tray-full',
         description:
@@ -72,10 +72,10 @@ export const navigationRoutes: NavigationRouteGroup[] = [
     ],
   },
   {
-    label: 'Password Manager',
+    label: 'passwordmanager',
     routes: [
       {
-        label: 'Passwords',
+        label: 'passwords',
         route: '/dashboard/passwordmanager/passwords',
         icon: 'ion:lock-closed-outline',
         description:

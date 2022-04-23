@@ -1,4 +1,14 @@
 {
+  "general": {
+    "linkHere": "here"
+  },
+  "actions": {
+    "signin": "Sign In",
+    "register": "Register",
+    "back": "Back",
+    "abort": "Abort",
+    "submit": "Submit"
+  },
   "errormessages": {
     "tooshort": "Too short",
     "toolong": "Too long",
@@ -6,13 +16,89 @@
     "invalidEmail": "Invalid email format",
     "birthday": "Invalid birthday"
   },
+  "navigation": {
+    "routes": {
+      "general": "General",
+      "startpage": "Startpage",
+      "dashboard": "Dashboard",
+      "statistics": "Statistics",
+
+      "wallettracking": "Wallet Tracking",
+      "finances": "Finances",
+
+      "todomaster": "Todo Master",
+      "list": "List",
+      "reportings": "Reportings",
+
+      "passwordmanager": "Password Manager",
+      "passwords": "Passwords"
+    }
+  },
   "pages": {
     "signin": {
+      "title": "Sign In",
+
       "infotext": "If you don't have an account, you can register an account",
-      "failedtext": "Your last sign-in attempt failed"
+      "failedtext": "Your last sign-in attempt failed",
+
+      "fields": {
+        "usernameOrEmail": "Username or E-Mail",
+        "password": "Password"
+      }
     },
     "register": {
-      "infotext": "You got an account? You can sign in "
+      "title": "Register",
+      "infotext": "You got an account? You can sign in ",
+
+      "fields": {
+        "username": "Username",
+        "email": "E-Mail",
+        "password": "Password",
+        "firstname": "Firstname",
+        "lastname": "Lastname"
+      }
+    },
+    "passwordmanager": {
+      "passwords": {
+        "title": "Passwords",
+
+        "fields": {
+          "yourpasswords": "Your Passwords",
+          "search": "Search...",
+
+          "service": "Service",
+          "password": "Password",
+          "instantactions": "Instant-Actions"
+        },
+
+        "actions": {
+          "unlock": "Unlock",
+          "lock": "Lock",
+          "insertpassword": "Insert Password",
+          "changeservicename": "Change Service-Name",
+          "delete": "Delete Password"
+        },
+
+        "tooltips": {
+          "togglehide": "Hold to show password",
+          "copy": "Copy password to clipboard"
+        },
+
+        "snackbar": {
+          "unlockerror": "You must unlock the passwords first",
+          "copy": "Copied to clipboard"
+        },
+
+        "dialogs": {
+          "unlock": {
+            "title": "Decryption",
+
+            "description": "Enter the used decryption password below",
+
+            "placeholder": "Hashing password"
+          }
+        }
+      }
     }
   }
 }

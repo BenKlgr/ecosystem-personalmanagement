@@ -7,7 +7,6 @@ type Props = {
 };
 export default function AuthLayout({ children }: Props) {
   const theme: ExtendedTheme = useTheme();
-  console.log(theme);
 
   return (
     <Container
@@ -22,7 +21,6 @@ export default function AuthLayout({ children }: Props) {
           boxShadow: theme.customShadows.z16,
           padding: '5rem 2.5rem',
           width: '30rem',
-          minWidth: '30rem',
           maxWidth: '30rem',
         }}>
         {children}

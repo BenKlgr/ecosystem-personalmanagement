@@ -58,7 +58,7 @@ export default function SignInPage() {
             }}
           />
           <Typography variant={'h4'} sx={{ opacity: 0.5 }}>
-            Sign in
+            {t('pages.signin.title')}
           </Typography>
         </Box>
         <Formik
@@ -77,7 +77,7 @@ export default function SignInPage() {
                   onChange={(event) =>
                     setFieldValue('usernameOrEmail', event.currentTarget.value)
                   }
-                  placeholder={'Username or Email'}
+                  placeholder={t('pages.signin.fields.usernameOrEmail')}
                   helperText={
                     errors.usernameOrEmail && touched.usernameOrEmail
                       ? errors.usernameOrEmail
@@ -91,13 +91,13 @@ export default function SignInPage() {
                   onChange={(event) =>
                     setFieldValue('password', event.currentTarget.value)
                   }
-                  placeholder={'Password'}
+                  placeholder={t('pages.signin.fields.password')}
                   type={'password'}
                   helperText={errors.password && touched.password ? errors.password : ''}
                   error={Boolean(errors.password && touched.password)}
                 />
                 <Collapse in={authLoadingState == 'error'}>
-                  <Alert severity={'error'}>Your last sign-in try failed.</Alert>
+                  <Alert severity={'error'}>{t('pages.signin.failedtext')}</Alert>
                 </Collapse>
                 <Stack direction={'row'} spacing={2}>
                   <Button
@@ -106,7 +106,7 @@ export default function SignInPage() {
                     sx={{ width: 'max-content' }}
                     color={'inherit'}
                     onClick={() => navigate('/')}>
-                    Back
+                    {t('actions.back')}
                   </Button>
                   <LoadingButton
                     startIcon={<Iconify icon={'ion:log-in-outline'} />}
@@ -114,7 +114,7 @@ export default function SignInPage() {
                     variant={'contained'}
                     sx={{ width: 'max-content' }}
                     loading={authLoadingState == 'loading'}>
-                    Sign in
+                    {t('actions.signin')}
                   </LoadingButton>
                 </Stack>
               </Stack>
@@ -122,7 +122,8 @@ export default function SignInPage() {
           )}
         </Formik>
         <Typography sx={{ opacity: 0.5, textAlign: 'center', width: '100%' }}>
-          {t('pages.signin.infotext')} <Link to={'/register'}>here</Link>.
+          {t('pages.signin.infotext')}{' '}
+          <Link to={'/register'}>{t('general.linkHere')}</Link>.
         </Typography>
       </Stack>
     </AuthLayout>

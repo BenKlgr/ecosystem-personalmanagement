@@ -21,6 +21,7 @@ import {
 import { Box } from '@mui/system';
 import Fuse from 'fuse.js';
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Iconify from '../../../components/Iconify';
 import Empty from '../../../components/placeholders/Empty';
 import EnterDecryptionPassword from '../../../modals/passwordmanager/EnterDecryptionPassword';
@@ -33,6 +34,7 @@ import PasswordTableRow from './PasswordCollectionTableRow';
 
 export default function PasswordCollection() {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const passwordsLoading = useAppSelector((state: RootState) => state.passwords.loading);
   const isLoading = passwordsLoading == 'idle' || passwordsLoading == 'loading';
@@ -92,9 +94,9 @@ export default function PasswordCollection() {
         <CardHeader
           title={
             <Stack direction={'row'} alignItems={'center'} spacing={4}>
-              <>Your Passwords</>
+              <>{t('pages.passwordmanager.passwords.fields.yourpasswords')}</>
               <TextField
-                placeholder={'Search...'}
+                placeholder={t('pages.passwordmanager.passwords.fields.search')}
                 value={search}
                 onChange={(event) => setSearch(event.currentTarget.value)}
                 variant={'standard'}
@@ -124,12 +126,14 @@ export default function PasswordCollection() {
                     icon={locked ? 'ion:lock-closed-outline' : 'ion:lock-open-outline'}
                   />
                 }>
-                {locked ? 'Unlock' : 'Lock'}
+                {locked
+                  ? t('pages.passwordmanager.passwords.actions.unlock')
+                  : t('pages.passwordmanager.passwords.actions.lock')}
               </Button>
               <Button
                 onClick={handleNewModalOpen}
                 startIcon={<Iconify icon={'ion:add'} />}>
-                Insert Password
+                {t('pages.passwordmanager.passwords.actions.insertpassword')}
               </Button>
             </Stack>
           }
@@ -140,9 +144,15 @@ export default function PasswordCollection() {
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ width: '5rem' }}>#</TableCell>
-                  <TableCell sx={{ width: '15rem' }}>Service</TableCell>
-                  <TableCell>Password</TableCell>
-                  <TableCell sx={{ width: '10rem' }}>Instant-Actions</TableCell>
+                  <TableCell sx={{ width: '15rem' }}>
+                    {t('pages.passwordmanager.passwords.fields.service')}
+                  </TableCell>
+                  <TableCell>
+                    {t('pages.passwordmanager.passwords.fields.password')}
+                  </TableCell>
+                  <TableCell sx={{ width: '10rem' }}>
+                    {t('pages.passwordmanager.passwords.fields.instantactions')}
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

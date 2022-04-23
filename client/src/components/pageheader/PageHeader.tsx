@@ -15,7 +15,9 @@ import { getRoute } from '../../utils/routes';
 import Iconify from '../Iconify';
 import PageHeaderSearch from './PageHeaderSearch';
 import UserControlPanel from '../UserControlPanel';
-import ThemeModeSwitch from '../theme/ThemeModeSwitch';
+import ThemeModeSwitch from '../util/ThemeModeSwitch';
+import LanguageModeSwitch from '../util/LanguageModeSwitch';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   title: string;
@@ -23,6 +25,7 @@ type Props = {
 };
 export default function PageHeader({ title, prevRoutes = [] }: Props) {
   const theme: ExtendedTheme = useTheme();
+  const { t } = useTranslation();
 
   const breadcrumbs = [
     ...prevRoutes.map((r) => {
@@ -50,7 +53,9 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
               color: theme.palette.text.primary,
             }}
           />
-          <Typography sx={{ marginLeft: 0.5 }}>{route?.label ?? r}</Typography>
+          <Typography sx={{ marginLeft: 0.5 }}>
+            {t(`navigation.routes.${route?.label ?? r}`)}
+          </Typography>
         </RouterLink>
       );
     }),
@@ -71,6 +76,7 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
               justifyContent: 'center',
               height: '100%',
             }}>
+            <LanguageModeSwitch />
             <ThemeModeSwitch />
             <UserControlPanel />
           </Box>

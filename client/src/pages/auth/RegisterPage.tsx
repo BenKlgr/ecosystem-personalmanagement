@@ -1,4 +1,4 @@
-import { Stack, Typography, TextField, Button, Box } from '@mui/material';
+import { Stack, Typography, TextField, Button, Box, useTheme } from '@mui/material';
 import { Formik, Form } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ export default function RegisterPage() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const RegisterShema = Yup.object().shape({
     username: Yup.string()
@@ -48,9 +49,16 @@ export default function RegisterPage() {
     <AuthLayout>
       <Stack spacing={4}>
         <Box sx={{ textAlign: 'center' }}>
-          <Logo />
+          <Logo
+            sx={{
+              fill: theme.palette.primary.main,
+              maxWidth: '70%',
+              display: 'block',
+              margin: '0 auto',
+            }}
+          />
           <Typography variant={'h4'} sx={{ opacity: 0.5 }}>
-            Register
+            {t('pages.register.title')}
           </Typography>
         </Box>
         <Formik
@@ -73,7 +81,7 @@ export default function RegisterPage() {
                   onChange={(event) =>
                     setFieldValue('username', event.currentTarget.value)
                   }
-                  placeholder={'Username'}
+                  placeholder={t('pages.register.fields.username')}
                   helperText={errors.username && touched.username ? errors.username : ''}
                   error={Boolean(errors.username && touched.username)}
                 />
@@ -81,7 +89,7 @@ export default function RegisterPage() {
                   fullWidth
                   value={values.email}
                   onChange={(event) => setFieldValue('email', event.currentTarget.value)}
-                  placeholder={'E-Mail'}
+                  placeholder={t('pages.register.fields.email')}
                   helperText={errors.email && touched.email ? errors.email : ''}
                   error={Boolean(errors.email && touched.email)}
                 />
@@ -91,7 +99,7 @@ export default function RegisterPage() {
                   onChange={(event) =>
                     setFieldValue('password', event.currentTarget.value)
                   }
-                  placeholder={'Password'}
+                  placeholder={t('pages.register.fields.password')}
                   type={'password'}
                   helperText={errors.password && touched.password ? errors.password : ''}
                   error={Boolean(errors.password && touched.password)}
@@ -102,7 +110,7 @@ export default function RegisterPage() {
                   onChange={(event) =>
                     setFieldValue('firstname', event.currentTarget.value)
                   }
-                  placeholder={'Firstname'}
+                  placeholder={t('pages.register.fields.firstname')}
                   helperText={
                     errors.firstname && touched.firstname ? errors.firstname : ''
                   }
@@ -114,7 +122,7 @@ export default function RegisterPage() {
                   onChange={(event) =>
                     setFieldValue('lastname', event.currentTarget.value)
                   }
-                  placeholder={'Lastname'}
+                  placeholder={t('pages.register.fields.lastname')}
                   helperText={errors.lastname && touched.lastname ? errors.lastname : ''}
                   error={Boolean(errors.lastname && touched.lastname)}
                 />
@@ -125,14 +133,14 @@ export default function RegisterPage() {
                     sx={{ width: 'max-content' }}
                     color={'inherit'}
                     onClick={() => navigate('/')}>
-                    Back
+                    {t('actions.back')}
                   </Button>
                   <Button
                     startIcon={<Iconify icon={'ion:log-in-outline'} />}
                     type={'submit'}
                     variant={'contained'}
                     sx={{ width: 'max-content' }}>
-                    Sign in
+                    {t('actions.register')}
                   </Button>
                 </Stack>
               </Stack>
@@ -140,7 +148,8 @@ export default function RegisterPage() {
           )}
         </Formik>
         <Typography sx={{ opacity: 0.5, textAlign: 'center', width: '100%' }}>
-          {t('pages.register.infotext')} <Link to={'/signin'}>here</Link>.
+          {t('pages.register.infotext')}{' '}
+          <Link to={'/signin'}>{t('general.linkHere')}</Link>.
         </Typography>
       </Stack>
     </AuthLayout>
