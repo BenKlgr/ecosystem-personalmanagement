@@ -1,4 +1,12 @@
 {
+  "general": {
+    "linkHere": "here"
+  },
+  "actions": {
+    "signin": "Sign In",
+    "register": "Register",
+    "back": "Back"
+  },
   "errormessages": {
     "tooshort": "Too short",
     "toolong": "Too long",
@@ -8,11 +16,27 @@
   },
   "pages": {
     "signin": {
+      "title": "Sign In",
+
       "infotext": "If you don't have an account, you can register an account",
-      "failedtext": "Your last sign-in attempt failed"
+      "failedtext": "Your last sign-in attempt failed",
+
+      "fields": {
+        "usernameOrEmail": "Username or E-Mail",
+        "password": "Password"
+      }
     },
     "register": {
-      "infotext": "You got an account? You can sign in "
+      "title": "Register",
+      "infotext": "You got an account? You can sign in ",
+
+      "fields": {
+        "username": "Username",
+        "email": "E-Mail",
+        "password": "Password",
+        "firstname": "Firstname",
+        "lastname": "Lastname"
+      }
     }
   }
 }
