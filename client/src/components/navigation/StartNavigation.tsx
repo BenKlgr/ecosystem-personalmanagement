@@ -4,7 +4,8 @@ import useAuth from '../../hooks/useAuth';
 import { ExtendedTheme } from '../../types/theme';
 import Iconify from '../Iconify';
 import Logo from '../Logo';
-import ThemeModeSwitch from '../theme/ThemeModeSwitch';
+import LanguageModeSwitch from '../util/LanguageModeSwitch';
+import ThemeModeSwitch from '../util/ThemeModeSwitch';
 
 export default function StartNavigation() {
   const theme: ExtendedTheme = useTheme();
@@ -29,6 +30,7 @@ export default function StartNavigation() {
           direction={'row'}
           spacing={2}
           justifyContent={['center', 'center', 'inherit', 'inherit']}>
+          <LanguageModeSwitch />
           <ThemeModeSwitch />
           {authenticated ? (
             <>

@@ -12,6 +12,7 @@ import {
   navigationRoutes,
   NavigationRoute as NavigationRouteType,
 } from '../../utils/routes';
+import { useTranslation } from 'react-i18next';
 
 export default function Navigation() {
   const theme: ExtendedTheme = useTheme();
@@ -92,6 +93,7 @@ type NavigationRouteProps = {
 function NavigationRoute({ route, activeRoute }: NavigationRouteProps) {
   const theme: ExtendedTheme = useTheme();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleClick = () => {
     navigate(route.route);
@@ -140,7 +142,7 @@ function NavigationRoute({ route, activeRoute }: NavigationRouteProps) {
                 ? theme.palette.primary.main
                 : theme.palette.text.primary,
             }}>
-            {route.label}
+            {t(`navigation.routes.${route.label}`)}
           </Typography>
         </Stack>
       </Box>

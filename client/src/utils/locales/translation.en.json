@@ -5,7 +5,9 @@
   "actions": {
     "signin": "Sign In",
     "register": "Register",
-    "back": "Back"
+    "back": "Back",
+    "abort": "Abort",
+    "submit": "Submit"
   },
   "errormessages": {
     "tooshort": "Too short",
@@ -13,6 +15,24 @@
     "required": "Required",
     "invalidEmail": "Invalid email format",
     "birthday": "Invalid birthday"
+  },
+  "navigation": {
+    "routes": {
+      "general": "General",
+      "startpage": "Startpage",
+      "dashboard": "Dashboard",
+      "statistics": "Statistics",
+
+      "wallettracking": "Wallet Tracking",
+      "finances": "Finances",
+
+      "todomaster": "Todo Master",
+      "list": "List",
+      "reportings": "Reportings",
+
+      "passwordmanager": "Password Manager",
+      "passwords": "Passwords"
+    }
   },
   "pages": {
     "signin": {
@@ -36,6 +56,48 @@
         "password": "Password",
         "firstname": "Firstname",
         "lastname": "Lastname"
+      }
+    },
+    "passwordmanager": {
+      "passwords": {
+        "title": "Passwords",
+
+        "fields": {
+          "yourpasswords": "Your Passwords",
+          "search": "Search...",
+
+          "service": "Service",
+          "password": "Password",
+          "instantactions": "Instant-Actions"
+        },
+
+        "actions": {
+          "unlock": "Unlock",
+          "lock": "Lock",
+          "insertpassword": "Insert Password",
+          "changeservicename": "Change Service-Name",
+          "delete": "Delete Password"
+        },
+
+        "tooltips": {
+          "togglehide": "Hold to show password",
+          "copy": "Copy password to clipboard"
+        },
+
+        "snackbar": {
+          "unlockerror": "You must unlock the passwords first",
+          "copy": "Copied to clipboard"
+        },
+
+        "dialogs": {
+          "unlock": {
+            "title": "Decryption",
+
+            "description": "Enter the used decryption password below",
+
+            "placeholder": "Hashing password"
+          }
+        }
       }
     }
   }

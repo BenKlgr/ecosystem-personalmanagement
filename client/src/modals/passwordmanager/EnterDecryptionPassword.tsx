@@ -9,6 +9,7 @@ import {
   Button,
 } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SetDecryptionPassword } from '../../redux/slices/passwords';
 import { useAppDispatch } from '../../types/redux';
 
@@ -21,6 +22,7 @@ export default function EnterDecryptionPassword({
   handleClose,
 }: EnterDecryptionPassword) {
   const [decryptionPassword, setDecryptionPassword] = useState('');
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
 
@@ -37,15 +39,17 @@ export default function EnterDecryptionPassword({
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>
-        <Typography variant={'h4'}>Decryption</Typography>
+        <Typography variant={'h4'}>
+          {t('pages.passwordmanager.passwords.dialogs.unlock.title')}
+        </Typography>
       </DialogTitle>
       <DialogContent>
         <Stack spacing={2}>
           <Typography variant={'subtitle2'}>
-            Enter the used decryption password below
+            {t('pages.passwordmanager.passwords.dialogs.unlock.description')}
           </Typography>
           <TextField
-            placeholder={'Hashing password'}
+            placeholder={t('pages.passwordmanager.passwords.dialogs.unlock.placeholder')}
             value={decryptionPassword}
             onChange={(event) => setDecryptionPassword(event.currentTarget.value)}
             autoFocus={true}
@@ -56,9 +60,9 @@ export default function EnterDecryptionPassword({
       </DialogContent>
       <DialogActions>
         <Button color={'inherit'} onClick={handleClose}>
-          Abort
+          {t('actions.abort')}
         </Button>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={handleSubmit}>{t('actions.submit')}</Button>
       </DialogActions>
     </Dialog>
   );
