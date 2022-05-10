@@ -71,18 +71,6 @@ export const navigationRoutes: NavigationRouteGroup[] = [
       },
     ],
   },
-  {
-    label: 'passwordmanager',
-    routes: [
-      {
-        label: 'passwords',
-        route: '/dashboard/passwordmanager/passwords',
-        icon: 'ion:lock-closed-outline',
-        description:
-          'See all your passwords and manage them with functions such as adding new passwords, deleting ones that you do not longer need and more.',
-      },
-    ],
-  },
 ];
 export function getRoute(route: string) {
   return navigationRoutes

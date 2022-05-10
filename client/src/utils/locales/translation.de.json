@@ -28,10 +28,7 @@
 
       "todomaster": "Todo Master",
       "list": "Auflistung",
-      "reportings": "Berichte",
-
-      "passwordmanager": "Password Manager",
-      "passwords": "Passwörter"
+      "reportings": "Berichte"
     }
   },
   "pages": {
@@ -56,48 +53,6 @@
         "password": "Passwort",
         "firstname": "Vorname",
         "lastname": "Nachname"
-      }
-    },
-    "passwordmanager": {
-      "passwords": {
-        "title": "Passwörter",
-
-        "fields": {
-          "yourpasswords": "Deine Passwörter",
-          "search": "Suche...",
-
-          "service": "Dienst",
-          "password": "Passwort",
-          "instantactions": "Direkt Aktionen"
-        },
-
-        "actions": {
-          "unlock": "Entschlüsseln",
-          "lock": "Verschlüsseln",
-          "insertpassword": "Password einfügen",
-          "changeservicename": "Dienst umbennen",
-          "delete": "Löschen"
-        },
-
-        "tooltips": {
-          "togglehide": "Halte zum Anzeigen des Passwortes",
-          "copy": "Kopiere in die Zwischenablage"
-        },
-
-        "snackbar": {
-          "unlockerror": "Du musst zuerst die Passwörter entschlüsseln",
-          "copy": "In die Zwischenablage kopiert"
-        },
-
-        "dialogs": {
-          "unlock": {
-            "title": "Entschlüsseln",
-
-            "description": "Gebe das vorher genutzte Verschlüsselungspasswort an",
-
-            "placeholder": "Verschlüsselungspasswort"
-          }
-        }
       }
     }
   }

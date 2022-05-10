@@ -28,10 +28,7 @@
 
       "todomaster": "Todo Master",
       "list": "List",
-      "reportings": "Reportings",
-
-      "passwordmanager": "Password Manager",
-      "passwords": "Passwords"
+      "reportings": "Reportings"
     }
   },
   "pages": {
@@ -56,48 +53,6 @@
         "password": "Password",
         "firstname": "Firstname",
         "lastname": "Lastname"
-      }
-    },
-    "passwordmanager": {
-      "passwords": {
-        "title": "Passwords",
-
-        "fields": {
-          "yourpasswords": "Your Passwords",
-          "search": "Search...",
-
-          "service": "Service",
-          "password": "Password",
-          "instantactions": "Instant-Actions"
-        },
-
-        "actions": {
-          "unlock": "Unlock",
-          "lock": "Lock",
-          "insertpassword": "Insert Password",
-          "changeservicename": "Change Service-Name",
-          "delete": "Delete Password"
-        },
-
-        "tooltips": {
-          "togglehide": "Hold to show password",
-          "copy": "Copy password to clipboard"
-        },
-
-        "snackbar": {
-          "unlockerror": "You must unlock the passwords first",
-          "copy": "Copied to clipboard"
-        },
-
-        "dialogs": {
-          "unlock": {
-            "title": "Decryption",
-
-            "description": "Enter the used decryption password below",
-
-            "placeholder": "Hashing password"
-          }
-        }
       }
     }
   }
