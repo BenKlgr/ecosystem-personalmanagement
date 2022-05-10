@@ -2,6 +2,9 @@ import { Sequelize } from 'sequelize-typescript';
 import { connectionString } from '../../../config/database.secretconfig.json';
 import { log } from '../../../util/Logger';
 import { User } from './models/auth/User';
+import { TodoCollection } from './models/todomaster/TodoCollection';
+import { TodoCollectionUser } from './models/todomaster/TodoCollectionUser';
+import { TodoEntry } from './models/todomaster/TodoEntry';
 
 export default class DatabaseManager {
   private static Connection: Sequelize;
@@ -9,7 +12,7 @@ export default class DatabaseManager {
   static async connectDatabase(): Promise<any> {
     this.Connection = new Sequelize(connectionString, {
       logging: false,
-      models: [User],
+      models: [User, TodoCollection, TodoEntry, TodoCollectionUser],
     });
     try {
       await this.Connection.authenticate();
