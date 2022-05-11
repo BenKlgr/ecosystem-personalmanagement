@@ -6,6 +6,7 @@ import { log } from '../util/Logger';
 import { authenticationRouter } from './controllers/Authentication';
 import { passwordManagerRouter } from './controllers/PasswordManager';
 import { serveClientRouter } from './controllers/ServeClient';
+import { todoMasterRouter } from './controllers/TodoMaster';
 import DatabaseManager from './lib/database/DatabaseManager';
 import LoggingMiddleware from './middleware/LoggingMiddleware';
 export const Server: IExpress = express();
@@ -19,7 +20,7 @@ function WebServer() {
   Server.use(LoggingMiddleware);
 
   log('Loading Controllers.');
-  Server.use('/api/passwordmanager', passwordManagerRouter);
+  Server.use('/api/todomaster', todoMasterRouter);
   Server.use('/api/auth', authenticationRouter);
 
   Server.use('', serveClientRouter);

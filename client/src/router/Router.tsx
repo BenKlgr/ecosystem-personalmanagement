@@ -7,6 +7,7 @@ import DashboardPage from '../pages/dashboard/DashboardPage';
 import StatisticsPage from '../pages/dashboard/StatisticsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import StartPage from '../pages/start/StartPage';
+import TodoMasterOverview from '../pages/todomaster/TodoMasterOverview';
 import LoadingOverlay from '../sections/LoadingOverlay';
 
 export default function Router() {
@@ -22,8 +23,8 @@ export default function Router() {
       <Route path={'/dashboard/home'} element={<DashboardPage />} />
       <Route path={'/dashboard/statistics'} element={<StatisticsPage />} />
 
-      {/* Password Manager */}
-      {/* <Route path={'/dashboard/passwordmanager/passwords'} element={<PasswordsPage />} /> */}
+      {/* Todo Master */}
+      <Route path={'/dashboard/todomaster/overview'} element={<TodoMasterOverview />} />
 
       <Route path={'*'} element={<Navigate to={'/dashboard/home'} />} />
     </>

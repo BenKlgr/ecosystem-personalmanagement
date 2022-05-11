@@ -1,11 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { authReducer } from './slices/auth';
-import { passwordsReducer } from './slices/passwords';
 import { themeReducer } from './slices/theme';
+import { todoMasterReducer } from './slices/todomaster';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
-  passwords: passwordsReducer,
+  todoMaster: todoMasterReducer,
   theme: themeReducer,
 });
 

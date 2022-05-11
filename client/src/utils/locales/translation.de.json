@@ -54,6 +54,11 @@
         "firstname": "Vorname",
         "lastname": "Nachname"
       }
+    },
+    "todomaster": {
+      "overview": {
+        "title": "Auflistung"
+      }
     }
   }
 }

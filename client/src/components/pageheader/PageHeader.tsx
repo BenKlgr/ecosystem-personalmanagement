@@ -66,7 +66,7 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
 
   return (
     <Box sx={{ marginBottom: theme.customSpacing.innerPadding }}>
-      <Stack spacing={2}>
+      <Stack spacing={theme.customSpacing.innerPadding}>
         <Stack direction={'row'} spacing={4} alignItems={'center'}>
           <PageHeaderSearch />
           <Box
@@ -81,7 +81,7 @@ export default function PageHeader({ title, prevRoutes = [] }: Props) {
             <UserControlPanel />
           </Box>
         </Stack>
-        <Typography variant={'h3'}>{title}</Typography>
+        <Typography variant={'h2'}>{title}</Typography>
         <Card
           sx={{
             paddingX: theme.customSpacing.md,
