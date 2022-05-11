@@ -17,7 +17,8 @@ export default function TasksSVG() {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       data-name='Layer 1'
-      height='100%'
+      width={'100%'}
+      style={{ maxWidth: '30rem' }}
       viewBox='0 0 801.92126 597.45739'
       xmlnsXlink='http://www.w3.org/1999/xlink'>
       <circle

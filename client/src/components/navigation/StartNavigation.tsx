@@ -4,7 +4,8 @@ import useAuth from '../../hooks/useAuth';
 import { ExtendedTheme } from '../../types/theme';
 import Iconify from '../Iconify';
 import Logo from '../Logo';
-import ThemeModeSwitch from '../theme/ThemeModeSwitch';
+import LanguageModeSwitch from '../util/LanguageModeSwitch';
+import ThemeModeSwitch from '../util/ThemeModeSwitch';
 
 export default function StartNavigation() {
   const theme: ExtendedTheme = useTheme();
@@ -12,10 +13,24 @@ export default function StartNavigation() {
   const [user, authenticated, loading, signOutFunction] = useAuth();
 
   return (
-    <Stack direction={'row'} sx={{ paddingY: theme.customSpacing.innerPadding }}>
-      <Logo sx={{ height: '2rem', fill: theme.palette.primary.main, flex: 1 }} />
+    <Stack
+      direction={['column', 'column', 'row', 'row']}
+      sx={{ paddingY: theme.customSpacing.innerPadding }}>
+      <Logo
+        sx={{
+          height: ['auto', 'auto', '2rem', '2rem'],
+          width: ['50%', '50%', 'auto', 'auto'],
+          fill: theme.palette.primary.main,
+          flex: 1,
+          margin: ['0 auto', '0 auto', 'inherit', 'inherit'],
+        }}
+      />
       <Box>
-        <Stack direction={'row'} spacing={2}>
+        <Stack
+          direction={'row'}
+          spacing={2}
+          justifyContent={['center', 'center', 'inherit', 'inherit']}>
+          <LanguageModeSwitch />
           <ThemeModeSwitch />
           {authenticated ? (
             <>

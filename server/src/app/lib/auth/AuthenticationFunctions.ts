@@ -6,6 +6,7 @@ import { ITokenPayload } from '../../../types/Authentication';
 import { User } from '../database/models/auth/User';
 import { IRequest } from '../../../types/ExpressTypes';
 import { Op } from 'sequelize';
+import { TodoCollection } from '../database/models/todomaster/TodoCollection';
 
 export function getTokenFromRequest(request: IRequest): string | null {
   const authorizationHeader = request.headers.authorization;
@@ -29,6 +30,7 @@ export async function getUserByToken(token: string): Promise<User | null> {
       id: userId,
       email,
     },
+    include: [TodoCollection],
   });
 
   return user;
@@ -50,6 +52,7 @@ export async function signIntoUser(
         },
       ],
     },
+    include: [TodoCollection],
   });
 
   if (!user) {

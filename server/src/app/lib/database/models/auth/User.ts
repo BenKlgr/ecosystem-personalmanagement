@@ -1,4 +1,5 @@
 import {
+  BelongsToMany,
   Column,
   CreatedAt,
   DataType,
@@ -11,6 +12,8 @@ import {
   Table,
   UpdatedAt,
 } from 'sequelize-typescript';
+import { TodoCollection } from '../todomaster/TodoCollection';
+import { TodoCollectionUser } from '../todomaster/TodoCollectionUser';
 
 @Table({ tableName: 'auth_users' })
 export class User extends Model<User> {
@@ -37,6 +40,9 @@ export class User extends Model<User> {
 
   @Column(DataType.DATE)
   birthday: Date;
+
+  @BelongsToMany(() => TodoCollection, () => TodoCollectionUser)
+  todoCollections: TodoCollection[];
 
   @CreatedAt
   createdAt: Date;

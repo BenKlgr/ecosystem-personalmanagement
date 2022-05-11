@@ -1,7 +1,59 @@
 {
+  "general": {
+    "linkHere": "hier"
+  },
+  "actions": {
+    "signin": "Einloggen",
+    "register": "Registrieren",
+    "back": "Zurück",
+    "abort": "Abbrechen",
+    "submit": "Fertig"
+  },
   "errormessages": {
     "tooshort": "Zu kurz",
     "toolong": "Zu lang",
-    "required": "Notwending"
+    "required": "Notwending",
+    "invalidEmail": "Ungültiges E-Mail Format",
+    "birthday": "Ungültiges Geburtsdatum"
+  },
+  "navigation": {
+    "routes": {
+      "general": "Allgemein",
+      "startpage": "Startseite",
+      "dashboard": "Übersicht",
+      "statistics": "Statistiken",
+
+      "wallettracking": "Wallet Tracking",
+      "finances": "Finanzen",
+
+      "todomaster": "Todo Master",
+      "list": "Auflistung",
+      "reportings": "Berichte"
+    }
+  },
+  "pages": {
+    "signin": {
+      "title": "Einloggen",
+
+      "infotext": "Du hast noch keinen Account? Erstelle einen ",
+      "failedtext": "Dein letzter Einlogversuch ist fehlgeschlagen",
+
+      "fields": {
+        "usernameOrEmail": "Benutzername oder E-Mail",
+        "password": "Passwort"
+      }
+    },
+    "register": {
+      "title": "Registrieren",
+      "infotext": "Du hast bereits einen Account? Logge dich ein ",
+
+      "fields": {
+        "username": "Benutzername",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "firstname": "Vorname",
+        "lastname": "Nachname"
+      }
+    }
   }
 }
